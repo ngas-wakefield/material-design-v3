@@ -51,6 +51,18 @@
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
+      <span class="px-2"> Theme </span>
+      <div class="dropdown me-3">
+        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ theme }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <a class="dropdown-item" [class.active]="theme === 'light'" (click)="onSelectTheme('light')">Light</a>
+          </li>
+          <li><a class="dropdown-item" [class.active]="theme === 'dark'" (click)="onSelectTheme('dark')">Dark</a></li>
+        </ul>
+      </div>
       <div class="pill-group">
         @for (item of [
           { title: 'Explore the Docs', link: 'https://angular.dev' },

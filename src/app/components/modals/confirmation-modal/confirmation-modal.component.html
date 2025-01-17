@@ -1,0 +1,20 @@
+<div class="modal-header" *ngIf="modalTitle">
+  <h5 class="modal-title">{{ modalTitle }}</h5>
+</div>
+<!-- Modal body -->
+<div class="modal-body" data-cy="messageModalBody">
+  <p [innerHTML]="modalMessage"></p>
+</div>
+<!-- Modal footer -->
+<div class="modal-footer">
+  <ng-container *ngIf="modalType === 'confirm'">
+    <eq-button type="secondary" text="No" (click)="modalRef.hide()" />
+    <eq-button type="primary" text="Yes" (click)="onClickConfirm()" />
+  </ng-container>
+  <ng-container *ngIf="modalType === 'success'">
+    <eq-button type="primary" text="OK" (click)="onClickSuccess()" />
+  </ng-container>
+  <ng-container *ngIf="modalType === 'error'">
+    <eq-button type="primary" text="Close" (click)="modalRef.hide()" />
+  </ng-container>
+</div>

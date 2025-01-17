@@ -1,0 +1,66 @@
+/* shared styles */
+.modal-footer {
+  border-top: none;
+  justify-content: end;
+}
+
+.modal-body p {
+  overflow: overlay;
+}
+
+/* website styles */
+:host-context(.website) :host {
+  background-color: var(--modal-foreground);
+  border-radius: 10px;
+}
+
+:host-context(.website) .modal-header {
+  display: none; /* force to remove it */
+}
+
+:host-context(.website) .modal-body {
+  font: var(--xs-rg);
+  color: var(--modal-text);
+}
+
+:host-context(.website) eq-button {
+  width: 100%; /* <button> width 100% doesn't work in modal-footer flex box, this force the button size to be 100% */
+}
+
+:host-context(.website) ::ng-deep .btn-primary {
+  color: var(--modal-btn-text) !important;
+  background-color: var(--modal-btn-bg) !important;
+}
+
+/* admin styles */
+:host-context(.admin) :host {
+  background-color: var(--off-black);
+  border-radius: 4px;
+}
+
+:host-context(.admin) .modal-header {
+  margin: 0 8px;
+  border-color: var(--grey);
+}
+
+:host-context(.admin) .modal-title {
+  font: var(--xl-md);
+  color: var(--white);
+}
+
+:host-context(.admin) .btn-close {
+  background-image: none;
+  color: white;
+}
+
+:host-context(.admin) .modal-body {
+  margin: 0 8px;
+  font: var(--lg-rg);
+  color: var(--white);
+}
+
+:host-context(.admin) ::ng-deep .btn-primary,
+:host-context(.admin) ::ng-deep .btn-secondary {
+  min-width: fit-content !important;
+  padding: 0px 48px !important;
+}
